@@ -14,7 +14,7 @@ router.post("/register", async (req, res) => {
     }
 
     if (confirmpassword !== password) {
-        return res.status(400).json({ error: "Passwords do not match" });
+        return res.status(400).json({error: "Passwords do not match" });
     }
 
     try {
@@ -47,21 +47,19 @@ router.post(
 	(req, res) => {
 	  req.session.name = req.body.username;
 	  req.session.save();
-  
-	  // Redirect to the frontend URL after successful login
-	  return res.redirect("http://localhost:3000/"); // Change the URL as per your frontend route
+
+	  return res.redirect("http://localhost:3000/");
 	}
   );
 
 // User logout route
 router.get("/logout", (req, res) => {
-    // Destroy the session
     req.session.destroy((err) => {
         if (err) {
             return res.status(500).json({ message: "Could not log out, please try again." });
         }
-        // Redirect to the homepage or login page after logging out
-        res.redirect("http://localhost:8000/login"); // or wherever you want to redirect the user after logout
+      
+        res.redirect("http://localhost:8000/login"); 
     });
 });
 
