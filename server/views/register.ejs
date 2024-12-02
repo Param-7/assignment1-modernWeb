@@ -1,0 +1,65 @@
+ <!-- Register.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-200 h-screen flex flex-col">
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <nav class="flex justify-between items-center px-6 py-4">
+            <a href="/" class="text-blue-800 text-xl font-semibold">Home</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center pt-20 px-4">
+        <div class="text-center bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+            <h1 class="text-3xl font-bold text-gray-900 mb-6">Registration Form</h1>
+            <% if (error) { %>
+                <p class="text-red-500 mb-4"><%= error %></p>
+            <% } %>
+            <form class="space-y-4" method="post" action="/apiRoutes/register">
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                    <input type="text" id="username" name="username" placeholder="John_01"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" placeholder="john@example.com"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                    <input type="password" id="password" name="password" placeholder="********"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
+                </div>
+                <div>
+                    <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <input type="password" id="confirm-password" name="confirmpassword" placeholder="********"
+                        class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md font-medium hover:bg-indigo-500 focus:ring focus:ring-indigo-300">
+                    Register
+                </button>
+            </form>
+            <p class="pt-5 text-sm text-gray-600">
+                Already have an account? 
+                <a href="/login" class="text-indigo-600 hover:underline">Login here</a>
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 text-center py-4">
+        <p>&copy; <%= new Date().getFullYear() %> Login Authentication. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!-- Home.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Authentication</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-200 h-screen flex flex-col"> 
+    <!-- Header -->
+    <header class="bg-white shadow-md fixed top-0 left-0 right-0 z-50">
+        <nav class="flex justify-between items-center px-6 py-4">
+            <a href="/" class="text-blue-800 text-xl font-semibold">Home</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center pt-20 px-4">
+        <% if (name) { %>
+            <div class="text-center bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+                <h1 class="text-3xl font-bold text-gray-900">Welcome, <%= name %></h1>
+                <p class="mt-4 text-gray-600">You're successfully authenticated.</p>
+                <div class="mt-6">
+                    <a href="/apiRoutes/logout" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-500 focus:ring focus:ring-indigo-300">
+                        Logout
+                    </a>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="text-center bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+                <h1 class="text-3xl font-bold text-gray-900">Invalid User</h1>
+                <p class="mt-4 text-gray-600">You're not authenticated. Please log in.</p>
+                <div class="mt-6">
+                    <a href="/login" class="bg-indigo-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-indigo-500 focus:ring focus:ring-indigo-300">
+                        Login
+                    </a>
+                </div>
+            </div>
+        <% } %>
+    </main>
+
+    <!-- Footer -->
+	<footer class="bg-gray-800 text-gray-400 text-center py-4">
+        <p>&copy; <%= new Date().getFullYear() %> Login Authentication. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
