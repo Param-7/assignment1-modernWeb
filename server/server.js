@@ -19,7 +19,7 @@ const app = express();
 connectDB(); 
 app.use( 
 	session({ 
-		secret: 'a165d41d3145c48b9cb4398d047008139c509420bce4edbd1e9c1b65db1671bb975a0e809594a2d77b28f4ed064702b1abd364440eef55d16c466b4a07b12588',
+		secret: SESSION_SECRET,
 		resave: false, 
 		saveUninitialized: false, 
 	}) 
