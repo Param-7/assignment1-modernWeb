@@ -9,6 +9,7 @@ const connectDB = require("./db");
 const ejs = require("ejs"); 
 const bodyParser = require("body-parser"); 
 const routes = require("./pages.js"); 
+require('dotenv').config();
 
 const apiRoutes = require('./routes/api');
 const cors = require('cors');
@@ -19,7 +20,7 @@ const app = express();
 connectDB(); 
 app.use( 
 	session({ 
-		secret: SESSION_SECRET,
+		secret: process.env.SESSION_SECRET || 'default_secret',
 		resave: false, 
 		saveUninitialized: false, 
 	}) 
